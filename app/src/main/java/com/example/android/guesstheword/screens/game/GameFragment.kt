@@ -76,6 +76,7 @@ class GameFragment : Fragment() {
 
 
         binding.gameViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner;
 //        updateScoreText()
 //        updateWordText()
         return binding.root
