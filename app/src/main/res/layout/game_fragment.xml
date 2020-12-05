@@ -17,7 +17,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
+        <variable
+            name="gameViewModel"
+            type="com.example.android.guesstheword.ViewModel.GameViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/game_layout"
         android:layout_width="match_parent"
@@ -91,6 +96,7 @@
             tools:text="Score: 2" />
 
         <Button
+            android:onClick="@{() -> gameViewModel.onSkip()}"
             android:id="@+id/skip_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,6 +116,8 @@
             app:layout_constraintGuide_end="96dp" />
 
         <Button
+
+            android:onClick="@{() -> gameViewModel.onCorrect()}"
             android:id="@+id/correct_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,10 +131,12 @@
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 
         <Button
+
             android:id="@+id/end_game_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:onClick="@{() -> gameViewModel.onGameFinish()}"
             android:text="@string/end_game"
             android:theme="@style/SkipButton"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -74,9 +74,8 @@ class GameFragment : Fragment() {
 
         viewModel.nextWord()
 
-        binding.correctButton.setOnClickListener { onCorrect() }
-        binding.skipButton.setOnClickListener { onSkip() }
-        binding.endGameButton.setOnClickListener { onEndGame() }
+
+        binding.gameViewModel = viewModel
 //        updateScoreText()
 //        updateWordText()
         return binding.root
@@ -90,14 +89,7 @@ class GameFragment : Fragment() {
 
     /** Methods for buttons presses **/
 
-    private fun onSkip() {
-        viewModel.onSkip()
-//        updateWordText()
-//        updateScoreText()
-    }
-    private fun onEndGame() {
-        gameFinished()
-    }
+
     private fun gameFinished() {
         Toast.makeText(activity, "Game has just finished", Toast.LENGTH_SHORT).show()
 //        val action = GameFragmentDirections.actionGameToScore()
@@ -110,11 +102,7 @@ class GameFragment : Fragment() {
         viewModel.onGameFinishComplete()
 
     }
-    private fun onCorrect() {
-        viewModel.onCorrect()
-//        updateScoreText()
-//        updateWordText()
-    }
+
 
     /**
      * Moves to the next word in the list
